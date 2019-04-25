@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favorite Articles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="favorites">
+    <ion-item-sliding *ngFor="let article of favorites">
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            <span style="font-size:150%;">{{article.headline}}</span>
+            <p><a href={{article.links.web.href}}>See Original</a></p>
+          </ion-card-header>
+          <ion-card-content>
+            {{article.description}}
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteFavorite(article)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

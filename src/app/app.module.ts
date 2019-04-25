@@ -10,6 +10,16 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StorageService } from '../providers/storage/storage';
+import { IonicStorageModule } from '@ionic/storage';
+import { NewsPage } from '../pages/news/news';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { NflPage } from '../pages/nfl/nfl';
+import { MlbPage } from '../pages/mlb/mlb';
+import { NbaPage } from '../pages/nba/nba';
+import { LoginPage } from '../pages/login/login';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,11 +27,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    NewsPage,
+    NbaPage,
+    MlbPage,
+    NflPage,
+    FavoritesPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +47,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    NewsPage,
+    NbaPage,
+    MlbPage,
+    NflPage,
+    FavoritesPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StorageService
   ]
 })
 export class AppModule {}
